@@ -34,7 +34,9 @@ try {
   console.error("Failed to start server - Database connection failed:", err.message);
   process.exit(1);
 }
-
+app.get("/", (req, res) => {
+  res.send("CodeRoom Backend is running");
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/rooms", roomRoutes);
 app.use("/api/execute", executeRoute);
